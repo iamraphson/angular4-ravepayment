@@ -21,7 +21,7 @@ yarn add angular4-ravepayment
 
 Then go ahead and reference the Rave inline script in your index.html:
 ```html
-<script src="//flw-pms-dev.eu-west-1.elasticbeanstalk.com/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>
+<script src="//ravesandboxapi.flutterwave.com/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>
 ```
 
 # Notice
