@@ -36,9 +36,11 @@ class RavepaymentComponent {
             country: this.country || 'NG',
             customer_firstname: this.customer_firstname || '',
             customer_lastname: this.customer_lastname || '',
+            customer_phone: this.customer_phone || '',
             custom_title: this.custom_title || '',
             custom_description: this.custom_description || '',
             custom_logo: this.custom_logo || '',
+            redirect_url: this.redirect_url || '',
             meta: this.meta || {}
         };
     }
@@ -47,12 +49,13 @@ RavepaymentComponent.decorators = [
     { type: Component, args: [{
                 selector: 'rave-pay-button',
                 template: `<button
-    class="paystack-pay-button"
+    class="rave-pay-button"
     [ngStyle]="style"
     [ngClass]="className"
     (click)="madePayment()">
         {{text || 'Pay'}}
-</button>`,
+</button>
+`,
                 styles: [`h1{color:red}`]
             },] },
 ];
@@ -73,9 +76,11 @@ RavepaymentComponent.propDecorators = {
     "country": [{ type: Input },],
     "customer_firstname": [{ type: Input },],
     "customer_lastname": [{ type: Input },],
+    "customer_phone": [{ type: Input },],
     "custom_title": [{ type: Input },],
     "custom_description": [{ type: Input },],
     "custom_logo": [{ type: Input },],
+    "redirect_url": [{ type: Input },],
 };
 
 /**

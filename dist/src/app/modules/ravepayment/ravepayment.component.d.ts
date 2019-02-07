@@ -14,9 +14,11 @@ export declare class RavepaymentComponent implements OnInit {
     country: string;
     customer_firstname: string;
     customer_lastname: string;
+    customer_phone: string;
     custom_title: string;
     custom_description: string;
     custom_logo: string;
+    redirect_url: string;
     private raveOptions;
     constructor();
     ngOnInit(): void;

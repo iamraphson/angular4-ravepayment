@@ -27,9 +27,11 @@ var RavepaymentComponent = /** @class */ (function () {
             country: this.country || 'NG',
             customer_firstname: this.customer_firstname || '',
             customer_lastname: this.customer_lastname || '',
+            customer_phone: this.customer_phone || '',
             custom_title: this.custom_title || '',
             custom_description: this.custom_description || '',
             custom_logo: this.custom_logo || '',
+            redirect_url: this.redirect_url || '',
             meta: this.meta || {}
         };
     };
@@ -38,7 +40,7 @@ var RavepaymentComponent = /** @class */ (function () {
 RavepaymentComponent.decorators = [
     { type: core.Component, args: [{
                 selector: 'rave-pay-button',
-                template: "<button\n    class=\"paystack-pay-button\"\n    [ngStyle]=\"style\"\n    [ngClass]=\"className\"\n    (click)=\"madePayment()\">\n        {{text || 'Pay'}}\n</button>",
+                template: "<button\n    class=\"rave-pay-button\"\n    [ngStyle]=\"style\"\n    [ngClass]=\"className\"\n    (click)=\"madePayment()\">\n        {{text || 'Pay'}}\n</button>\n",
                 styles: ["h1{color:red}"]
             },] },
 ];
@@ -58,9 +60,11 @@ RavepaymentComponent.propDecorators = {
     "country": [{ type: core.Input },],
     "customer_firstname": [{ type: core.Input },],
     "customer_lastname": [{ type: core.Input },],
+    "customer_phone": [{ type: core.Input },],
     "custom_title": [{ type: core.Input },],
     "custom_description": [{ type: core.Input },],
     "custom_logo": [{ type: core.Input },],
+    "redirect_url": [{ type: core.Input },],
 };
 var RavepaymentModule = /** @class */ (function () {
     function RavepaymentModule() {
