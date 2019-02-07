@@ -9,9 +9,11 @@ interface IRaveOptions {
     customer_email: string;
     customer_firstname: string;
     customer_lastname: string;
+    customer_phone: string;
     custom_title: string;
     custom_description: string;
     custom_logo: string;
+    redirect_url: string;
     meta ?: any;
     callback: (response: object) => void;
     onclose: () => void;
@@ -43,9 +45,12 @@ export class RavepaymentComponent implements OnInit {
     @Input() country: string;
     @Input() customer_firstname: string;
     @Input() customer_lastname: string;
+    @Input() customer_phone: string;
     @Input() custom_title: string;
     @Input() custom_description: string;
     @Input() custom_logo: string;
+    @Input() redirect_url: string;
+    
 
     private raveOptions: IRaveOptions;
 
@@ -70,9 +75,11 @@ export class RavepaymentComponent implements OnInit {
             country: this.country || 'NG',
             customer_firstname: this.customer_firstname || '',
             customer_lastname: this.customer_lastname || '',
+            customer_phone: this.customer_phone || '',
             custom_title: this.custom_title || '',
             custom_description: this.custom_description || '',
             custom_logo: this.custom_logo || '',
+            redirect_url: this.redirect_url || '',
             meta: this.meta || {}
         };
     }
