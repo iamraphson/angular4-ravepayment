@@ -41,18 +41,21 @@ class RavepaymentComponent {
             custom_description: this.custom_description || '',
             custom_logo: this.custom_logo || '',
             redirect_url: this.redirect_url || '',
-            meta: this.meta || {}
+            meta: this.meta || {},
+            payment_method: this.payment_method || 'card'
         };
     }
 }
 RavepaymentComponent.decorators = [
     { type: Component, args: [{
                 selector: 'rave-pay-button',
-                template: `<button
+                template: `<button ng-cloak
     class="rave-pay-button"
     [ngStyle]="style"
     [ngClass]="className"
-    (click)="madePayment()">
+    (click)="madePayment()"
+    [attr.payment_method]="payment_method"
+    >
         {{text || 'Pay'}}
 </button>
 `,
@@ -81,6 +84,7 @@ RavepaymentComponent.propDecorators = {
     "custom_description": [{ type: Input },],
     "custom_logo": [{ type: Input },],
     "redirect_url": [{ type: Input },],
+    "payment_method": [{ type: Input },],
 };
 
 /**

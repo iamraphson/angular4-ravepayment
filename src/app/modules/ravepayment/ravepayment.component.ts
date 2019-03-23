@@ -17,6 +17,7 @@ interface IRaveOptions {
     meta ?: any;
     callback: (response: object) => void;
     onclose: () => void;
+    payment_method :string;
 }
 
 interface MyWindow extends Window {
@@ -50,6 +51,7 @@ export class RavepaymentComponent implements OnInit {
     @Input() custom_description: string;
     @Input() custom_logo: string;
     @Input() redirect_url: string;
+    @Input() payment_method :string;
     
 
     private raveOptions: IRaveOptions;
@@ -80,7 +82,8 @@ export class RavepaymentComponent implements OnInit {
             custom_description: this.custom_description || '',
             custom_logo: this.custom_logo || '',
             redirect_url: this.redirect_url || '',
-            meta: this.meta || {}
+            meta: this.meta || {},
+            payment_method : this.payment_method  || 'card'
         };
     }
 }
