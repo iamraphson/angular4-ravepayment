@@ -52,13 +52,31 @@ export class RavepaymentComponent implements OnInit {
     @Input() custom_logo: string;
     @Input() redirect_url: string;
     @Input() payment_method :string;
+
+    @Input() use_test_server: boolean; 
     
 
     private raveOptions: IRaveOptions;
 
 
     constructor() {}
-    ngOnInit() {}
+    ngOnInit() {
+        if(this.use_test_server){
+            this.loadRaveScript('http://flw-pms-dev.eu-west-1.elasticbeanstalk.com/flwv3-pug/getpaidx/api/flwpbf-inline.js');
+        }else{
+            this.loadRaveScript('//api.ravepay.co/flwv3-pug/getpaidx/api/flwpbf-inline.js');
+        }
+    }
+
+    public loadRaveScript(scriptUrl) {
+        let body = <HTMLDivElement> document.body;
+        let script = document.createElement('script');
+        script.innerHTML = '';
+        script.src = scriptUrl;
+        script.async = true;
+        script.defer = true;
+        body.appendChild(script);
+    }
 
     madePayment() {
         this.prepRaveOptions();
