@@ -32,7 +32,8 @@ var RavepaymentComponent = /** @class */ (function () {
             custom_description: this.custom_description || '',
             custom_logo: this.custom_logo || '',
             redirect_url: this.redirect_url || '',
-            meta: this.meta || {}
+            meta: this.meta || {},
+            payment_method: this.payment_method || 'card'
         };
     };
     return RavepaymentComponent;
@@ -40,7 +41,7 @@ var RavepaymentComponent = /** @class */ (function () {
 RavepaymentComponent.decorators = [
     { type: core.Component, args: [{
                 selector: 'rave-pay-button',
-                template: "<button\n    class=\"rave-pay-button\"\n    [ngStyle]=\"style\"\n    [ngClass]=\"className\"\n    (click)=\"madePayment()\">\n        {{text || 'Pay'}}\n</button>\n",
+                template: "<button ng-cloak\n    class=\"rave-pay-button\"\n    [ngStyle]=\"style\"\n    [ngClass]=\"className\"\n    (click)=\"madePayment()\"\n    [attr.payment_method]=\"payment_method\"\n    >\n        {{text || 'Pay'}}\n</button>\n",
                 styles: ["h1{color:red}"]
             },] },
 ];
@@ -65,6 +66,7 @@ RavepaymentComponent.propDecorators = {
     "custom_description": [{ type: core.Input },],
     "custom_logo": [{ type: core.Input },],
     "redirect_url": [{ type: core.Input },],
+    "payment_method": [{ type: core.Input },],
 };
 var RavepaymentModule = /** @class */ (function () {
     function RavepaymentModule() {

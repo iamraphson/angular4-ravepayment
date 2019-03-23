@@ -1,7 +1,9 @@
-<button
+<button ng-cloak
     class="rave-pay-button"
     [ngStyle]="style"
     [ngClass]="className"
-    (click)="madePayment()">
+    (click)="madePayment()"
+    [attr.payment_method]="payment_method"
+    >
         {{text || 'Pay'}}
 </button>
