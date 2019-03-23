@@ -1,4 +1,4 @@
-<rave-pay-button
+<rave-pay-button ng-cloak
     [text]="'Pay me,my money'"
     [className]="'paymentbtn'"
     (callback)="confirmPayment($event)"
@@ -7,4 +7,6 @@
     [reference]="generateReference()"
     [amount]="10000"
     [email]="'FooBar@rave.com'"
+    [payment_method]="'card'"
+    [use_test_server]="true"
 ></rave-pay-button >
